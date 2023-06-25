@@ -1,0 +1,7 @@
+let y;
+fn f(x) {
+  y;
+  print(x);
+}
+
+f.len(10);

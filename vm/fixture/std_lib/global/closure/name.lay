@@ -1,0 +1,9 @@
+let y;
+fn first() { y; }
+fn second() { y; }
+
+let assigned = first;
+
+assertEq(first.name(), "first");
+assertEq(second.name(), "second");
+assertEq(assigned.name(), "first");

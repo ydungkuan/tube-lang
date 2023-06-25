@@ -1,0 +1,13 @@
+[package]
+name = "tube_native"
+version = "0.1.0"
+authors = ["Y Dung Kuan<ydungkuan@outlook.com>"]
+edition = "2021"
+
+[lib]
+name = "tube_native"
+path = "src/lib.rs"
+
+[dependencies]
+tube_env = { path = "../env" }
+termcolor = "1.1.3"

@@ -1,0 +1,11 @@
+let isEven = |n| {
+  if n == 0 { return true; }
+  return isOdd(n - 1);
+};
+
+let isOdd = |n| {
+  return isEven(n - 1);
+};
+
+assert(isEven(4));
+assert(isOdd(3));

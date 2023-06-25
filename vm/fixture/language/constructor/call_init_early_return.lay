@@ -1,0 +1,14 @@
+let count = 0;
+
+class Foo {
+  init() {
+    count += 1;
+    return;
+    assert(false);
+  }
+}
+
+let foo = Foo();
+assertEq(foo.cls(), Foo);
+assertEq(foo.init().cls(), Foo);
+assertEq(count, 2);

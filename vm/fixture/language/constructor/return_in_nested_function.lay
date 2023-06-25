@@ -1,0 +1,10 @@
+class Foo {
+  init() {
+    fn init() {
+      return "bar";
+    }
+    assertEq(init(), "bar"); // expect: bar
+  }
+}
+
+assertEq(Foo().cls(), Foo);

@@ -1,0 +1,68 @@
+class Toggle {
+  init(startState) {
+    @state = startState;
+  }
+
+  value() { @state }
+
+  activate() {
+    @state = !@state;
+    self
+  }
+}
+
+class NthToggle : Toggle {
+  init(startState, maxCounter) {
+    super.init(startState);
+    @countMax = maxCounter;
+    @count = 0;
+  }
+
+  activate() {
+    @count += 1;
+    if @count >= @countMax {
+      super.activate();
+      @count = 0;
+    }
+
+    self
+  }
+}
+
+let start = clock();
+let n = 500;
+let val = true;
+let toggle = Toggle(val);
+
+for i in n.times() {
+  val = toggle.activate().value();
+  val = toggle.activate().value();
+  val = toggle.activate().value();
+  val = toggle.activate().value();
+  val = toggle.activate().value();
+  val = toggle.activate().value();
+  val = toggle.activate().value();
+  val = toggle.activate().value();
+  val = toggle.activate().value();
+  val = toggle.activate().value();
+}
+
+toggle.value();
+
+val = true;
+let ntoggle = NthToggle(val, 3);
+
+for i in n.times() {
+  val = ntoggle.activate().value();
+  val = ntoggle.activate().value();
+  val = ntoggle.activate().value();
+  val = ntoggle.activate().value();
+  val = ntoggle.activate().value();
+  val = ntoggle.activate().value();
+  val = ntoggle.activate().value();
+  val = ntoggle.activate().value();
+  val = ntoggle.activate().value();
+  val = ntoggle.activate().value();
+}
+
+ntoggle.value();

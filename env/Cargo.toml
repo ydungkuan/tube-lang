@@ -1,0 +1,14 @@
+[package]
+name = "tube_env"
+version = "0.1.0"
+authors = ["Y Dung Kuan <ydungkuan@outlook.com>"]
+edition = "2021"
+
+[lib]
+name = "tube_env"
+path = "src/lib.rs"
+
+[dependencies]
+hashbrown = "0.13.2"
+fnv = "1.0.7"
+termcolor = "1.2.0"

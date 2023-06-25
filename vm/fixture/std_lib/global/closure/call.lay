@@ -1,0 +1,15 @@
+let y;
+fn inner(value) {
+  y;
+  return value * 2;
+}
+
+fn outer(name) {
+  y;
+  print(name);
+  return inner;
+}
+
+assertEq(outer.call("hi"), inner);
+assertEq(inner.call(10), 20);
+assertEq(outer.call("hi").call(5), 10);

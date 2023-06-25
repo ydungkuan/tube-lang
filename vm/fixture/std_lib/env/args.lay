@@ -1,0 +1,3 @@
+import std.env;
+
+assert(env.args().len() > 0);

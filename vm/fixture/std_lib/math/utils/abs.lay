@@ -1,0 +1,5 @@
+import std.math;
+
+assertEq(math.abs(10.0), 10.0);
+assertEq(math.abs(-45.3), 45.3);
+

@@ -1,0 +1,140 @@
+import std.math:{rand, rem};
+import std.io.stdio:{stdout};
+
+let DEAD = 0;
+let ALIVE = 1;
+let DEFAULT = 20;
+
+class Cell {
+  init(status) {
+    @status = status;
+  }
+
+  static alive() {
+    return Cell(ALIVE);
+  }
+
+  static dead() {
+    return Cell(DEAD);
+  }
+
+  toggle() {
+    @status = 1 - @status;
+  }
+
+  isAlive() {
+    return @status == ALIVE;
+  }
+
+  render() {
+    if @isAlive() {
+      return '□';
+    }
+
+    return '■';
+  }
+}
+
+class Universe {
+  static new() {
+    let cells = (DEFAULT * DEFAULT * 2)
+      .times()
+      .reduce([], |list, _| {
+        if rand() > 0.5 {
+          list.push(Cell.alive());
+        } else {
+          list.push(Cell.dead());
+        }
+
+        return list;
+      });
+
+    return Universe(DEFAULT * 2, DEFAULT, cells);
+  }
+
+  init(width, height, cells) {
+    @width = width;
+    @height = height;
+    @cells = cells;
+  }
+
+  getIndex(row, col) {
+    return (row * @width + col);
+  }
+
+  liveNeighbors(row, col) {
+    let count = 0;
+    for deltaRow in [@height - 1, 0, 1] {
+      for deltaCol in [@width - 1, 0, 1] {
+        if deltaRow != 0 || deltaCol != 0 {
+          let neighborRow = rem(row + deltaRow, @height);
+          let neighborCol = rem(col + deltaCol, @width);
+
+          let idx = @getIndex(neighborRow, neighborCol);
+          count = count + @cells[idx].status;
+        }
+      }
+    }
+    return count;
+  }
+
+  runSteps(n) {
+    n.times().each(|i| {
+      @tick();
+      @render();
+
+      stdout.writeln('');
+      stdout.writeln('');
+    });
+  }
+
+  tick() {
+    let next = [];
+    for cell in @cells {
+      next.push(cell);
+    }
+
+    for row in @height.times() {
+      for col in @width.times() {
+        let idx = @getIndex(row, col);
+        let cell = @cells[idx];
+        let liveNeighbors = @liveNeighbors(row, col);
+
+        let nextCell = cell;
+        if cell.isAlive() {
+          if liveNeighbors < 2 || liveNeighbors > 3 {
+            nextCell = Cell.dead();
+          } else {
+            nextCell = Cell.alive();
+          }
+        } else {
+          if liveNeighbors == 3 {
+            nextCell = Cell.alive();
+          } else {
+            nextCell = Cell.dead();
+          }
+        }
+
+        next[idx] = nextCell;
+      }
+    }
+
+    @cells = next;
+  }
+
+  render() {
+    for row in @height.times() {
+      for col in @width.times() {
+        let idx = @getIndex(row, col);
+        let cell = @cells[idx];
+
+        stdout.write(cell.render());
+      }
+
+      stdout.writeln('');
+    }
+  }
+}
+
+let universe = Universe.new();
+universe.runSteps(30);

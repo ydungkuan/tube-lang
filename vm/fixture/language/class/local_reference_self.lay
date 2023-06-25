@@ -1,0 +1,9 @@
+if true {
+  class Foo {
+    returnSelf() {
+      Foo
+    }
+  }
+
+  assertEq(Foo().returnSelf(), Foo); // expect: Foo
+}

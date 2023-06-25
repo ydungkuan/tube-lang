@@ -1,0 +1,22 @@
+[package]
+name = "tube"
+version = "0.1.0"
+authors = ["Y Dung Kuan <ydungkuan@outlook.com>"]
+edition = "2021"
+
+[features]
+jemalloc = ["jemallocator"]
+
+[profile.release]
+debug = true
+
+[[bin]]
+name = "tube"
+path = "src/main.rs"
+
+[dependencies]
+tube_vm = { path = "./vm", features=[] }
+# tube_vm features
+# debug
+
+jemallocator = { version = "0.5.0", optional = true }

@@ -1,0 +1,16 @@
+[package]
+name = "tube_frontend_bench"
+version = "0.1.0"
+authors = ["Y Dung Kuan<ydungkuan@outlook.com>"]
+edition = "2021"
+
+[[bin]]
+name = "tube_frontend_bench"
+path = "src/main.rs"
+
+[dependencies]
+tube_core = { path = "../tube_core" }
+tube_vm = { path = "../tube_vm" }
+tube_native = { path = "../tube_native" }
+tube_lib = { path = "../tube_lib" }
+bumpalo = { version = "3.11.1", features=["boxed", "collections"] }

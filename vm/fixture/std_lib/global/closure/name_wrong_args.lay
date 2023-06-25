@@ -1,0 +1,7 @@
+let y;
+fn example(x) {
+  y;
+  return x;
+}
+
+example.name("hi");

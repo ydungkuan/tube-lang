@@ -1,0 +1,23 @@
+class A {
+  say() {
+    return "A";
+  }
+}
+
+class B : A {
+  test() {
+    return super.say();
+  }
+
+  say() {
+    return "B";
+  }
+}
+
+class C : B {
+  say() {
+    return "C";
+  }
+}
+
+assertEq(C().test(), "A"); // expect: A

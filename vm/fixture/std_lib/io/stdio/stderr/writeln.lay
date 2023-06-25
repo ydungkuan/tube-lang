@@ -1,0 +1,4 @@
+import std.io.stdio:{stderr};
+
+stderr.writeln('expected 1');
+stderr.writeln('expected 2');

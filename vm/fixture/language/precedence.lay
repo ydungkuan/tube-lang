@@ -1,0 +1,32 @@
+// * has higher precedence than +.
+assertEq(2 + 3 * 4, 14); // expect: 14
+
+// * has higher precedence than -.
+assertEq(20 - 3 * 4, 8); // expect: 8
+
+// / has higher precedence than +.
+assertEq(2 + 6 / 3, 4); // expect: 4
+
+// / has higher precedence than -.
+assertEq(2 - 6 / 3, 0); // expect: 0
+
+// < has higher precedence than ==.
+assertEq(false == 2 < 1, true); // expect: true
+
+// > has higher precedence than ==.
+assertEq(false == 1 > 2, true); // expect: true
+
+// <= has higher precedence than ==.
+assertEq(false == 2 <= 1, true); // expect: true
+
+// >= has higher precedence than ==.
+assertEq(false == 1 >= 2, true); // expect: true
+
+// 1 - 1 is not space-sensitive.
+assertEq(1 - 1, 0); // expect: 0
+assertEq(1 -1, 0);  // expect: 0
+assertEq(1- 1, 0);  // expect: 0
+assertEq(1-1, 0);   // expect: 0
+
+// Using () for grouping.
+assertEq((2 * (6 - (2 + 2))), 4); // expect: 4

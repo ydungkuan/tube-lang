@@ -1,0 +1,31 @@
+class Zoo {
+  init() {
+    @aarletk  = 1;
+    @baboon   = 1;
+    @cat      = 1;
+    @donkey   = 1;
+    @elephant = 1;
+    @fox      = 1;
+  }
+  ant()    { @aarletk }
+  banana() { @baboon }
+  tuna()   { @cat }
+  hay()    { @donkey }
+  grass()  { @elephant }
+  mouse()  { @fox }
+}
+
+let zoo = Zoo();
+let sum = 0;
+let start = clock();
+while sum < 10000000 {
+  sum += zoo.ant()
+      + zoo.banana()
+      + zoo.tuna()
+      + zoo.hay()
+      + zoo.grass()
+      + zoo.mouse();
+}
+
+print(sum);
+print(clock() - start);

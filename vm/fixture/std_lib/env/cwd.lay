@@ -1,0 +1,3 @@
+import std.env;
+
+assert(env.cwd().has("Laythe/tube_vm"));

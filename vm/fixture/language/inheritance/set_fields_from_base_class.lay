@@ -1,0 +1,41 @@
+class Foo {
+  init() {
+    self.field1 = nil;
+    self.field2 = nil;
+  }
+
+  foo(a, b) {
+    self.field1 = a;
+    self.field2 = b;
+  }
+
+  fooFn() {
+    return [self.field1, self.field2];
+  }
+}
+
+class Bar : Foo {
+  bar(a, b) {
+    self.field1 = a;
+    self.field2 = b;
+  }
+
+  barFn() {
+    return [self.field1, self.field2];
+  }
+}
+
+let bar = Bar();
+bar.foo("foo 1", "foo 2");
+let r = bar.fooFn();
+assertEq(r[0], "foo 1");
+assertEq(r[1], "foo 2");
+
+bar.bar("bar 1", "bar 2");
+r = bar.barFn();
+assertEq(r[0], "bar 1");
+assertEq(r[1], "bar 2");
+
+bar.fooFn();
+assertEq(r[0], "bar 1");
+assertEq(r[1], "bar 2");

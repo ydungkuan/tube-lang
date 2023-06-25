@@ -1,0 +1,13 @@
+let hit = false;
+
+class Foo {
+  init() {
+    hit = true;
+    return;
+    assert(false);
+  }
+}
+
+let foo = Foo();
+assertEq(foo.cls(), Foo);
+assert(hit);

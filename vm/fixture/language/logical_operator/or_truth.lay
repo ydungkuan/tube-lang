@@ -1,0 +1,8 @@
+// False and nil are false.
+assertEq(false || "ok", "ok"); // expect: ok
+assertEq(nil || "ok", "ok"); // expect: ok
+
+// Everything else is true.
+assertEq(true || "ok", true); // expect: true
+assertEq(0 || "ok", 0); // expect: 0
+assertEq("s" || "ok", "s"); // expect: s

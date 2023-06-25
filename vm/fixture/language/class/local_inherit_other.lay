@@ -1,0 +1,8 @@
+export class A {}
+
+fn f() {
+  class B : A {}
+  return B;
+}
+
+assert(f().str().has('<class B')); // expect: B

@@ -1,0 +1,7 @@
+class Foo {}
+
+assertEq([true, false].cls(), List);
+assertEq([1, 2, 3, 4].cls(), List);
+assertEq(["John", "Jain", "Mary"].cls(), List);
+assertEq([Foo(), Foo(), Foo()].cls(), List);
+assertEq([clock, clock, clock].cls(), List);

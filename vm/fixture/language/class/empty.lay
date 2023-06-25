@@ -1,0 +1,3 @@
+class Foo {}
+
+assert(Foo.str().has('<class Foo')); // expect: Foo

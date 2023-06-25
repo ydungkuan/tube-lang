@@ -1,0 +1,9 @@
+fn outer() {
+  raiser();
+}
+
+fn raiser() {
+  raise Error("raise");
+}
+
+outer();

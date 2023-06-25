@@ -1,0 +1,14 @@
+class Foo {
+  methodOnFoo() { return "foo"; }
+  override() { return "foo"; }
+}
+
+class Bar : Foo {
+  methodOnBar() { return "bar"; }
+  override() { return "bar"; }
+}
+
+let bar = Bar();
+assertEq(bar.methodOnFoo(), "foo"); // expect: foo
+assertEq(bar.methodOnBar(), "bar"); // expect: bar
+assertEq(bar.override(), "bar"); // expect: bar

@@ -1,0 +1,26 @@
+let f1;
+let f2;
+let f3;
+
+for i in [1, 2, 3] {
+  let j = i;
+  fn f() {
+    return [i, j];
+  }
+
+  if j == 1 { f1 = f; }
+  else if j == 2 { f2 = f; }
+  else { f3 = f; }
+}
+
+let a1 = f1();
+assertEq(a1[0], 3);
+assertEq(a1[1], 1);
+
+let a2 = f2();
+assertEq(a2[0], 3);
+assertEq(a2[1], 2);
+
+let a3 = f3();
+assertEq(a3[0], 3);
+assertEq(a3[1], 3);

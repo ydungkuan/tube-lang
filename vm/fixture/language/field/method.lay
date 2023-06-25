@@ -1,0 +1,8 @@
+class Foo {
+  bar(arg) {
+    return arg;
+  }
+}
+
+let bar = Foo().bar;
+assertEq(bar("arg"), "arg");

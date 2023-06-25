@@ -1,0 +1,10 @@
+fn f() {
+  for x in [1] {
+    let i = "i";
+    fn g() { return i; }
+    return g;
+  }
+}
+
+let h = f();
+assertEq(h(), "i");

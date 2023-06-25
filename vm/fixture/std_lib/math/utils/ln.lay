@@ -1,0 +1,10 @@
+import std.math;
+
+fn almost(actual, expect) {
+  assert(math.abs((actual - expect)) < 0.0000001);
+}
+
+almost(math.ln(1.0), 0.0);
+almost(math.ln(math.e), 1.0);
+almost(math.ln(math.e * math.e), 2.0);
+
